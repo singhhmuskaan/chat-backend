@@ -18,7 +18,7 @@ export default {
     //strapi.server.httpServer is the new update for Strapi V4
     const io = require("socket.io")(strapi.server.httpServer, {
       cors: { // cors setup
-        origin: "http://localhost:3000",
+        origin: "https://chat-frontend-fzh6.vercel.app",
         methods: ["GET", "POST"],
         allowedHeaders: ["my-custom-header"],
         credentials: true,
@@ -48,7 +48,7 @@ export default {
         };
         const axios = require("axios");
         await axios
-          .post("http://localhost:1337/api/messages", strapiData, {headers: {"Authorization": `Bearer ${data.token}`}})//Storing the messages in Strapi
+          .post("https://chat-backend-production-7ca1.up.railway.app/api/messages", strapiData, {headers: {"Authorization": `Bearer ${data.token}`}})//Storing the messages in Strapi
           .then((_e) => {
             socket.broadcast.to("thread").emit("message", {//Sending the message to the thread
               user: data.username,
