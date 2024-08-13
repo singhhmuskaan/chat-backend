@@ -18,9 +18,8 @@ export default {
     //strapi.server.httpServer is the new update for Strapi V4
     const io = require("socket.io")(strapi.server.httpServer, {
       cors: { // cors setup
-        origin: "https://chat-frontend-fzh6.vercel.app",
+        origin: "*",
         methods: ["GET", "POST"],
-        allowedHeaders: ["my-custom-header"],
         credentials: true,
       },
     });
